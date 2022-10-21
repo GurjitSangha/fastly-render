@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content="Astro v1.5.1" />
+    <title>Welcome to Astro.</title>
+    <style>
+      /*
+! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
+*/ /*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+      *,
+      ::before,
+      ::after {
+        box-sizing: border-box; /* 1 */
+        border-width: 0; /* 2 */
+        border-style: solid; /* 2 */
+        border-color: #e5e7eb; /* 2 */
+      }
+
+      ::before,
+      ::after {
+        --tw-content: '';
+      }
+
+      /*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+*/
+
+      html {
+        line-height: 1.5; /* 1 */
+        -webkit-text-size-adjust: 100%; /* 2 */
+        -moz-tab-size: 4; /* 3 */
+        -o-tab-size: 4;
+        tab-size: 4; /* 3 */
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+          'Segoe UI Symbol', 'Noto Color Emoji'; /* 4 */
+      }
+
+      /*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+      body {
+        margin: 0; /* 1 */
+        line-height: inherit; /* 2 */
+      }
+
+      /*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+      hr {
+        height: 0; /* 1 */
+        color: inherit; /* 2 */
+        border-top-width: 1px; /* 3 */
+      }
+
+      /*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+      abbr:where([title]) {
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+      }
+
+      /*
+Remove the default font size and weight for headings.
+*/
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+
+      /*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+
+      /*
+Add the correct font weight in Edge and Safari.
+*/
+
+      b,
+      strong {
+        font-weight: bolder;
+      }
+
+      /*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+      code,
+      kbd,
+      samp,
+      pre {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+          'Courier New', monospace; /* 1 */
+        font-size: 1em; /* 2 */
+      }
+
+      /*
+Add the correct font size in all browsers.
+*/
+
+      small {
+        font-size: 80%;
+      }
+
+      /*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+
+      sub {
+        bottom: -0.25em;
+      }
+
+      sup {
+        top: -0.5em;
+      }
+
+      /*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+      table {
+        text-indent: 0; /* 1 */
+        border-color: inherit; /* 2 */
+        border-collapse: collapse; /* 3 */
+      }
+
+      /*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit; /* 1 */
+        font-size: 100%; /* 1 */
+        font-weight: inherit; /* 1 */
+        line-height: inherit; /* 1 */
+        color: inherit; /* 1 */
+        margin: 0; /* 2 */
+        padding: 0; /* 3 */
+      }
+
+      /*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+      button,
+      select {
+        text-transform: none;
+      }
+
+      /*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+      button,
+      [type='button'],
+      [type='reset'],
+      [type='submit'] {
+        -webkit-appearance: button; /* 1 */
+        background-color: transparent; /* 2 */
+        background-image: none; /* 2 */
+      }
+
+      /*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+      :-moz-focusring {
+        outline: auto;
+      }
+
+      /*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+      :-moz-ui-invalid {
+        box-shadow: none;
+      }
+
+      /*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+      progress {
+        vertical-align: baseline;
+      }
+
+      /*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        height: auto;
+      }
+
+      /*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+      [type='search'] {
+        -webkit-appearance: textfield; /* 1 */
+        outline-offset: -2px; /* 2 */
+      }
+
+      /*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+      ::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+
+      /*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button; /* 1 */
+        font: inherit; /* 2 */
+      }
+
+      /*
+Add the correct display in Chrome and Safari.
+*/
+
+      summary {
+        display: list-item;
+      }
+
+      /*
+Removes the default spacing and border for appropriate elements.
+*/
+
+      blockquote,
+      dl,
+      dd,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      hr,
+      figure,
+      p,
+      pre {
+        margin: 0;
+      }
+
+      fieldset {
+        margin: 0;
+        padding: 0;
+      }
+
+      legend {
+        padding: 0;
+      }
+
+      ol,
+      ul,
+      menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      /*
+Prevent resizing textareas horizontally by default.
+*/
+
+      textarea {
+        resize: vertical;
+      }
+
+      /*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+      input::-moz-placeholder,
+      textarea::-moz-placeholder {
+        opacity: 1; /* 1 */
+        color: #9ca3af; /* 2 */
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        opacity: 1; /* 1 */
+        color: #9ca3af; /* 2 */
+      }
+
+      /*
+Set the default cursor for buttons.
+*/
+
+      button,
+      [role='button'] {
+        cursor: pointer;
+      }
+
+      /*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+      :disabled {
+        cursor: default;
+      }
+
+      /*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+      img,
+      svg,
+      video,
+      canvas,
+      audio,
+      iframe,
+      embed,
+      object {
+        display: block; /* 1 */
+        vertical-align: middle; /* 2 */
+      }
+
+      /*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+      img,
+      video {
+        max-width: 100%;
+        height: auto;
+      }
+
+      *,
+      ::before,
+      ::after {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246 / 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+      }
+
+      ::backdrop {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246 / 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+      }
+      .container {
+        width: 100%;
+      }
+      @media (min-width: 640px) {
+        .container {
+          max-width: 640px;
+        }
+      }
+      @media (min-width: 768px) {
+        .container {
+          max-width: 768px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .container {
+          max-width: 1024px;
+        }
+      }
+      @media (min-width: 1280px) {
+        .container {
+          max-width: 1280px;
+        }
+      }
+      @media (min-width: 1536px) {
+        .container {
+          max-width: 1536px;
+        }
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      .absolute {
+        position: absolute;
+      }
+      .relative {
+        position: relative;
+      }
+      .inset-0 {
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+      }
+      .-inset-px {
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        left: -1px;
+      }
+      .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .my-20 {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+      }
+      .ml-10 {
+        margin-left: 2.5rem;
+      }
+      .mt-4 {
+        margin-top: 1rem;
+      }
+      .mt-16 {
+        margin-top: 4rem;
+      }
+      .mt-2 {
+        margin-top: 0.5rem;
+      }
+      .mb-10 {
+        margin-bottom: 2.5rem;
+      }
+      .mt-20 {
+        margin-top: 5rem;
+      }
+      .mt-1 {
+        margin-top: 0.25rem;
+      }
+      .mt-6 {
+        margin-top: 1.5rem;
+      }
+      .mt-10 {
+        margin-top: 2.5rem;
+      }
+      .block {
+        display: block;
+      }
+      .inline-block {
+        display: inline-block;
+      }
+      .flex {
+        display: flex;
+      }
+      .grid {
+        display: grid;
+      }
+      .hidden {
+        display: none;
+      }
+      .h-10 {
+        height: 2.5rem;
+      }
+      .h-\[280px\] {
+        height: 280px;
+      }
+      .h-auto {
+        height: auto;
+      }
+      .h-full {
+        height: 100%;
+      }
+      .w-full {
+        width: 100%;
+      }
+      .w-auto {
+        width: auto;
+      }
+      .w-1\/2 {
+        width: 50%;
+      }
+      .max-w-7xl {
+        max-width: 80rem;
+      }
+      .max-w-2xl {
+        max-width: 42rem;
+      }
+      .cursor-pointer {
+        cursor: pointer;
+      }
+      .cursor-not-allowed {
+        cursor: not-allowed;
+      }
+      .grid-cols-1 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+      .grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .grid-cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      .grid-rows-2 {
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+      }
+      .flex-row {
+        flex-direction: row;
+      }
+      .flex-col {
+        flex-direction: column;
+      }
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
+      .items-center {
+        align-items: center;
+      }
+      .justify-center {
+        justify-content: center;
+      }
+      .justify-between {
+        justify-content: space-between;
+      }
+      .gap-4 {
+        gap: 1rem;
+      }
+      .gap-12 {
+        gap: 3rem;
+      }
+      .gap-y-16 {
+        row-gap: 4rem;
+      }
+      .gap-x-8 {
+        -moz-column-gap: 2rem;
+        column-gap: 2rem;
+      }
+      .gap-x-6 {
+        -moz-column-gap: 1.5rem;
+        column-gap: 1.5rem;
+      }
+      .gap-y-10 {
+        row-gap: 2.5rem;
+      }
+      .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(2rem * var(--tw-space-x-reverse));
+        margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(1rem * var(--tw-space-x-reverse));
+        margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+        margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+        margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+      }
+      .overflow-hidden {
+        overflow: hidden;
+      }
+      .rounded-md {
+        border-radius: 0.375rem;
+      }
+      .rounded {
+        border-radius: 0.25rem;
+      }
+      .rounded-lg {
+        border-radius: 0.5rem;
+      }
+      .border {
+        border-width: 1px;
+      }
+      .border-2 {
+        border-width: 2px;
+      }
+      .border-b {
+        border-bottom-width: 1px;
+      }
+      .border-t {
+        border-top-width: 1px;
+      }
+      .border-transparent {
+        border-color: transparent;
+      }
+      .border-gray-200 {
+        --tw-border-opacity: 1;
+        border-color: rgb(229 231 235 / var(--tw-border-opacity));
+      }
+      .border-gray-400 {
+        --tw-border-opacity: 1;
+        border-color: rgb(156 163 175 / var(--tw-border-opacity));
+      }
+      .border-indigo-500 {
+        --tw-border-opacity: 1;
+        border-color: rgb(99 102 241 / var(--tw-border-opacity));
+      }
+      .bg-black {
+        --tw-bg-opacity: 1;
+        background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+      }
+      .bg-white {
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+      }
+      .bg-gray-100 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+      }
+      .bg-slate-700 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(51 65 85 / var(--tw-bg-opacity));
+      }
+      .bg-gray-200 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+      }
+      .bg-gray-50 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+      }
+      .bg-indigo-600 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+      }
+      .object-cover {
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+      .object-center {
+        -o-object-position: center;
+        object-position: center;
+      }
+      .p-20 {
+        padding: 5rem;
+      }
+      .p-10 {
+        padding: 2.5rem;
+      }
+      .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .py-6 {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+      .py-2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      .py-4 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .py-16 {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+      .py-24 {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+      }
+      .py-12 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+      .py-3 {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+      .px-8 {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .py-20 {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+      }
+      .pt-4 {
+        padding-top: 1rem;
+      }
+      .pt-6 {
+        padding-top: 1.5rem;
+      }
+      .pt-10 {
+        padding-top: 2.5rem;
+      }
+      .pb-16 {
+        padding-bottom: 4rem;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-base {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+      .text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+      .text-3xl {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+      }
+      .text-sm {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+      .text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+      }
+      .text-2xl {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      .font-medium {
+        font-weight: 500;
+      }
+      .font-bold {
+        font-weight: 700;
+      }
+      .uppercase {
+        text-transform: uppercase;
+      }
+      .tracking-tight {
+        letter-spacing: -0.025em;
+      }
+      .text-black {
+        --tw-text-opacity: 1;
+        color: rgb(0 0 0 / var(--tw-text-opacity));
+      }
+      .text-white {
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / var(--tw-text-opacity));
+      }
+      .text-gray-900 {
+        --tw-text-opacity: 1;
+        color: rgb(17 24 39 / var(--tw-text-opacity));
+      }
+      .text-gray-500 {
+        --tw-text-opacity: 1;
+        color: rgb(107 114 128 / var(--tw-text-opacity));
+      }
+      .text-gray-700 {
+        --tw-text-opacity: 1;
+        color: rgb(55 65 81 / var(--tw-text-opacity));
+      }
+      .text-indigo-600 {
+        --tw-text-opacity: 1;
+        color: rgb(79 70 229 / var(--tw-text-opacity));
+      }
+      .text-gray-200 {
+        --tw-text-opacity: 1;
+        color: rgb(229 231 235 / var(--tw-text-opacity));
+      }
+      .shadow-sm {
+        --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+          var(--tw-shadow);
+      }
+      .ring-2 {
+        --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width)
+          var(--tw-ring-offset-color);
+        --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width))
+          var(--tw-ring-color);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+      }
+      .ring-indigo-500 {
+        --tw-ring-opacity: 1;
+        --tw-ring-color: rgb(99 102 241 / var(--tw-ring-opacity));
+      }
+      .transition {
+        transition-property: color, background-color, border-color, text-decoration-color, fill,
+          stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+        transition-property: color, background-color, border-color, text-decoration-color, fill,
+          stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+        transition-property: color, background-color, border-color, text-decoration-color, fill,
+          stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+      .hover\:bg-indigo-50:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(238 242 255 / var(--tw-bg-opacity));
+      }
+      .hover\:bg-gray-50:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+      }
+      .hover\:bg-indigo-700:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(67 56 202 / var(--tw-bg-opacity));
+      }
+      .hover\:bg-opacity-75:hover {
+        --tw-bg-opacity: 0.75;
+      }
+      .hover\:text-indigo-50:hover {
+        --tw-text-opacity: 1;
+        color: rgb(238 242 255 / var(--tw-text-opacity));
+      }
+      .hover\:text-gray-600:hover {
+        --tw-text-opacity: 1;
+        color: rgb(75 85 99 / var(--tw-text-opacity));
+      }
+      .hover\:text-indigo-500:hover {
+        --tw-text-opacity: 1;
+        color: rgb(99 102 241 / var(--tw-text-opacity));
+      }
+      .focus\:outline-none:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+      .focus\:ring-2:focus {
+        --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width)
+          var(--tw-ring-offset-color);
+        --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width))
+          var(--tw-ring-color);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+      }
+      .focus\:ring-indigo-500:focus {
+        --tw-ring-opacity: 1;
+        --tw-ring-color: rgb(99 102 241 / var(--tw-ring-opacity));
+      }
+      .focus\:ring-offset-2:focus {
+        --tw-ring-offset-width: 2px;
+      }
+      .group:hover .group-hover\:opacity-75 {
+        opacity: 0.75;
+      }
+      @media (min-width: 640px) {
+        .sm\:flex-1 {
+          flex: 1 1 0%;
+        }
+
+        .sm\:grid-cols-2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .sm\:grid-cols-8 {
+          grid-template-columns: repeat(8, minmax(0, 1fr));
+        }
+
+        .sm\:gap-6 {
+          gap: 1.5rem;
+        }
+
+        .sm\:gap-y-16 {
+          row-gap: 4rem;
+        }
+
+        .sm\:px-6 {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+
+        .sm\:py-24 {
+          padding-top: 6rem;
+          padding-bottom: 6rem;
+        }
+
+        .sm\:py-32 {
+          padding-top: 8rem;
+          padding-bottom: 8rem;
+        }
+
+        .sm\:py-6 {
+          padding-top: 1.5rem;
+          padding-bottom: 1.5rem;
+        }
+
+        .sm\:text-4xl {
+          font-size: 2.25rem;
+          line-height: 2.5rem;
+        }
+
+        .sm\:text-3xl {
+          font-size: 1.875rem;
+          line-height: 2.25rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        .lg\:col-span-2 {
+          grid-column: span 2 / span 2;
+        }
+
+        .lg\:col-start-1 {
+          grid-column-start: 1;
+        }
+
+        .lg\:row-span-3 {
+          grid-row: span 3 / span 3;
+        }
+
+        .lg\:mt-0 {
+          margin-top: 0px;
+        }
+
+        .lg\:block {
+          display: block;
+        }
+
+        .lg\:grid {
+          display: grid;
+        }
+
+        .lg\:hidden {
+          display: none;
+        }
+
+        .lg\:h-80 {
+          height: 20rem;
+        }
+
+        .lg\:h-full {
+          height: 100%;
+        }
+
+        .lg\:w-full {
+          width: 100%;
+        }
+
+        .lg\:max-w-7xl {
+          max-width: 80rem;
+        }
+
+        .lg\:grid-cols-2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .lg\:grid-cols-4 {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .lg\:grid-cols-3 {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .lg\:grid-rows-\[auto\2c auto\2c 1fr\] {
+          grid-template-rows: auto auto 1fr;
+        }
+
+        .lg\:gap-8 {
+          gap: 2rem;
+        }
+
+        .lg\:gap-x-8 {
+          -moz-column-gap: 2rem;
+          column-gap: 2rem;
+        }
+
+        .lg\:border-r {
+          border-right-width: 1px;
+        }
+
+        .lg\:border-none {
+          border-style: none;
+        }
+
+        .lg\:border-gray-200 {
+          --tw-border-opacity: 1;
+          border-color: rgb(229 231 235 / var(--tw-border-opacity));
+        }
+
+        .lg\:px-8 {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+
+        .lg\:pt-16 {
+          padding-top: 4rem;
+        }
+
+        .lg\:pb-24 {
+          padding-bottom: 6rem;
+        }
+
+        .lg\:pr-8 {
+          padding-right: 2rem;
+        }
+
+        .lg\:pt-6 {
+          padding-top: 1.5rem;
+        }
+
+        .lg\:pb-16 {
+          padding-bottom: 4rem;
+        }
+      }
+      @media (min-width: 1280px) {
+        .xl\:gap-x-8 {
+          -moz-column-gap: 2rem;
+          column-gap: 2rem;
+        }
+      }
+    </style>
+    <script type="module" src="/@vite/client"></script>
+    <script
+      type="module"
+      src="/@fs/Users/owensmith/workspace/@shiftcommerce/astro-fly-prisma/node_modules/.vite/deps/astro_runtime_client_hmr__js.js?v=3cc87688"
+    ></script>
+    <script type="module" src="/@id/astro:scripts/page.js"></script>
+    <script type="module" src="/node_modules/@astrojs/tailwind/base.css"></script>
+  </head>
+  <header>
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
+      <div class="flex w-full items-center justify-between border-b py-6 lg:border-none">
+        <div class="flex items-center">
+          <a href="#">
+            <span class="sr-only">Your Company</span>
+            <img
+              class="h-10 w-auto"
+              src="https://tailwindui.com/img/logos/mark.svg?color=black"
+              alt=""
+            />
+          </a>
+          <div class="ml-10 hidden space-x-8 lg:block">
+            <a href="/" class="text-base font-medium text-black hover:text-indigo-50"> Home </a
+            ><a href="/products" class="text-base font-medium text-black hover:text-indigo-50">
+              Products </a
+            ><a href="#" class="text-base font-medium text-black hover:text-indigo-50"> Docs </a
+            ><a href="#" class="text-base font-medium text-black hover:text-indigo-50"> Company </a>
+          </div>
+        </div>
+        <div class="ml-10 space-x-4">
+          <a
+            href="#"
+            class="inline-block rounded-md border border-transparent bg-black py-2 px-4 text-base font-medium text-white hover:bg-opacity-75"
+          >
+            Sign in
+          </a>
+          <a
+            href="#"
+            class="inline-block rounded-md border border-transparent bg-black py-2 px-4 text-base font-medium text-white hover:bg-indigo-50"
+          >
+            Sign up
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-wrap justify-center space-x-6 py-4 lg:hidden">
+        <a href="/" class="text-base font-medium text-black hover:text-indigo-50"> Home </a
+        ><a href="/products" class="text-base font-medium text-black hover:text-indigo-50">
+          Products </a
+        ><a href="#" class="text-base font-medium text-black hover:text-indigo-50"> Docs </a
+        ><a href="#" class="text-base font-medium text-black hover:text-indigo-50"> Company </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+    <main
+      data-blok-c="{&#34;name&#34;:&#34;page&#34;,&#34;space&#34;:&#34;179717&#34;,&#34;uid&#34;:&#34;eca542a3-5ae8-43c8-a0ad-6465dc51aa79&#34;,&#34;id&#34;:&#34;206447634&#34;}"
+      data-blok-uid="206447634-eca542a3-5ae8-43c8-a0ad-6465dc51aa79"
+    >
+      <div class="w-full rounded border border-gray-400 flex flex-row">
+        <div class="w-1/2 bg-slate-700 text-white p-10">
+          <h1 class="mb-10">Test</h1>
+          <p>
+            Bacon ipsum dolor amet shankle shank short loin flank, boudin sausage meatball
+            prosciutto leberkas pork belly frankfurter ball tip chislic brisket short ribs. Spare
+            ribs ribeye meatball kielbasa prosciutto tenderloin pork chop pancetta drumstick
+            bresaola beef ribs. Chicken ham ham hock pastrami shank. Short loin ball tip tenderloin
+            frankfurter chislic.
+          </p>
+        </div>
+        <div class="w-1/2 h-auto">
+          <img
+            src="https://a.storyblok.com/f/179717/5751x3834/c3b17bfab5/maxim-tolchinskiy-es-uilz7ude-unsplash.jpg"
+          />
+        </div>
+      </div>
+      <div
+        class="mt-20 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+        data-container="products_container"
+      >
+        <a href="/products/1">
+          <div key="1" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $916</p>
+            </div>
+          </div> </a
+        ><a href="/products/2">
+          <div key="2" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $429</p>
+            </div>
+          </div> </a
+        ><a href="/products/3">
+          <div key="3" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $860</p>
+            </div>
+          </div> </a
+        ><a href="/products/4">
+          <div key="4" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $760</p>
+            </div>
+          </div> </a
+        ><a href="/products/5">
+          <div key="5" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $329</p>
+            </div>
+          </div> </a
+        ><a href="/products/6">
+          <div key="6" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $139</p>
+            </div>
+          </div> </a
+        ><a href="/products/7">
+          <div key="7" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $772</p>
+            </div>
+          </div> </a
+        ><a href="/products/8">
+          <div key="8" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $821</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="w-full rounded text-white text-center my-20 block h-[280px]">
+        <div class="relative flex">
+          <img
+            class="absolute"
+            src="https://images.unsplash.com/photo-1665686310974-2ed1eb7f57ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&h=400&q=80"
+            alt=""
+          />
+          <h1 class="absolute p-20">This is a test title</h1>
+        </div>
+      </div>
+      <div
+        class="mt-20 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+        data-container="products_container"
+      >
+        <a href="/products/1">
+          <div key="1" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $916</p>
+            </div>
+          </div> </a
+        ><a href="/products/2">
+          <div key="2" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $429</p>
+            </div>
+          </div> </a
+        ><a href="/products/3">
+          <div key="3" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $860</p>
+            </div>
+          </div> </a
+        ><a href="/products/4">
+          <div key="4" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $760</p>
+            </div>
+          </div> </a
+        ><a href="/products/5">
+          <div key="5" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $329</p>
+            </div>
+          </div> </a
+        ><a href="/products/6">
+          <div key="6" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $139</p>
+            </div>
+          </div> </a
+        ><a href="/products/7">
+          <div key="7" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $772</p>
+            </div>
+          </div> </a
+        ><a href="/products/8">
+          <div key="8" class="group relative">
+            <div
+              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
+            >
+              <img
+                src="https://trendygolf.imgix.net/uploads/asset_file/asset_file/391818/1666020365.2249591-1327037-496-01_gfseqp.jpg?auto=compress%2Cformat&bg=fff&crop=faces&cs=tinysrgb&dpr=1.5&fit=crop&fm=pjpg&h=564&q=80&w=564"
+                alt="Front of men's Basic Tee in black."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+            </div>
+            <div class="mt-4 flex justify-between">
+              <div>
+                <h3 class="text-sm text-gray-700">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500">Colour: red</p>
+              </div>
+              <p class="text-sm font-medium text-gray-900">Price: $821</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </main>
+  </main>
+</html>
